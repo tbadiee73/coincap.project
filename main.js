@@ -25,9 +25,12 @@ rank_items.classList.add('table_item_row');
 rank_items.classList.add('left_title');
 rank_items.textContent= items.rank;
 
-let name_items=document.createElement('div');
+
+let name_items=document.createElement('a');
 name_items.classList.add('table_item_row');
 name_items.classList.add('second_title');
+let id_name=items.id;
+name_items.setAttribute("href",`./chart.html?coin=${id_name}`);
 
 let table_icon =document.createElement('img');
 let symbol_ui="";
@@ -39,13 +42,11 @@ table_icon.setAttribute('height','30px');
 let name_details =document.createElement('div');
 name_details.classList.add('name_details');
 
-let name_title=document.createElement('a');
-name_title.setAttribute('href','#');
+let name_title=document.createElement('div');
 name_title.classList.add('name');
 name_title.textContent= items.name;
 
-let name_symbol=document.createElement('a');
-name_symbol.setAttribute('href','#');
+let name_symbol=document.createElement('div');
 name_symbol.classList.add('symbol');
 name_symbol.textContent=items.symbol;
 
@@ -61,25 +62,40 @@ let price_items=document.createElement('div');
 price_items.classList.add('table_item_row');
 price_items.textContent= numeral(items.priceUsd).format('$0,0.00a');
 
+
 let marketcap_items=document.createElement('div');
 marketcap_items.classList.add('table_item_row');
 marketcap_items.textContent=numeral(items.marketCapUsd).format('$0,0.00a');
+
 
 let vwap_items=document.createElement('div');
  vwap_items.classList.add('table_item_row');
  vwap_items.textContent=numeral(items.vwap24Hr).format('$0,0.00a');
 
+
 let supply_items=document.createElement('div');
 supply_items.classList.add('table_item_row');
-supply_items.textContent=numeral(items.supply).format('$0,0.00a');
+supply_items.textContent=numeral(items.supply).format('0,0.00a');
+
 
 let volume_items=document.createElement('div');
 volume_items.classList.add('table_item_row');
 volume_items.textContent=numeral(items.volumeUsd24Hr).format('$0,0.00a');
 
+
 let change_items=document.createElement('div');
 change_items.classList.add('table_item_row');
-change_items.textContent=numeral(items.changePercent24Hr).format('$0,0.00a');
+let changes =items.changePercent24Hr
+if (changes <= 0){
+  change_items.classList.add('text-red');
+}else {
+  change_items.classList.add('text-green');
+}
+
+change_items.textContent=Math.round(items.changePercent24Hr*100)/100 +'%';
+
+
+
 
 
 stat_table_row.appendChild(rank_items);
@@ -95,24 +111,4 @@ stat_table_row.appendChild(change_items);
 list_container.appendChild(stat_table_row)
 };
 
-console.log(rendertable);
-
-//modal
-
-let open_btn=document.querySelector(".open_btn");
-let close_btn=document.querySelector(".close");
-let modal = document.querySelector(".modal");
-
-function toggle_modal(){
-  
-  modal.classList.toggle("show");
-};
-
-open_btn.addEventListener("click", toggle_modal);
-close_btn.addEventListener("click", toggle_modal);
-
-window.onclick = function(event) {
-  if (event.target == modal) {
-   modal.classList.remove("show");
-  }
-}
+//console.log(rendertable);

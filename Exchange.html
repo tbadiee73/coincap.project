@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CoinCap.io | Reliable Cryptocurrency Prices and Market Capitalizations</title>
+    <title>Exchanges | CoinCap.io</title>
     <link rel="stylesheet" href="./style.css" >
 <link rel="icon" type="image/x-icon" href="./assets/coincap.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,26 +14,68 @@
 </head>
 <body>
   <nav>
-      <div class="container nav_items">
-          <div class="items ">
-              <a href="./index.html" class="nav_item nav_item_ui">Coins</a>
-              <a href="#" class="nav_item nav_item_ui">Exchanges</a>
-          </div>
-          <div class="items">
-              <a href="#" class="nav_item nav_item_ui"><img src="./assets/black.svg" width="80"></a>
-          </div>
-          <div class="items">
-              <div class="nav_item">
-                <input type="text">
-              </div>
-              <div class="nav_item"><img src="./assets/setting.svg"></div>
-              <div class="nav_item"><button class="nav_button">Connect Wallet</button></div>
-          </div>
+    <div class="container nav_items">
+      <div class="items">
+        <a href="./index.html" class="nav_item nav_item_ui">Coins</a>
+        <a href="./Exchange.html" class="nav_item nav_item_ui">Exchanges</a>
+        <a href="./Swap.html" class="nav_item nav_item_ui">Swap</a>
       </div>
+      <div class="items">
+        <a href="#" class="nav_item nav_item_ui">
+          <img src="./assets/black.svg" width="80" />
+        </a>
+      </div>
+      <div class="items">
+        <div class="nav_item">
+          <input type="text" />
+        </div>
+
+        <div class="nav_item open_btn">
+          <img src="./assets/setting.svg" />
+        </div>
+
+        <div class="nav_item">
+          <button class="nav_button">Connect Wallet</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal">
+      <div class="content">
+        <div class="settings">
+          <h2>
+            <img src="./assets/settings.svg" width="42px" height="32px" />
+            setting
+          </h2>
+          <h2 class="close" style="cursor: pointer;">&times;</h2>
+        </div>
+        <div class="description">
+          <div class="modal_item">
+            Dark Thems
+            <input type="checkbox" />
+          </div>
+          <div class="modal_item">
+            Flash Price Indicators
+            <input type="checkbox" />
+          </div>
+          <select class="modal_item">
+            <option>USD</option>
+            <option>UGX</option>
+            <option>AED</option>
+          </select>
+
+          <select class="modal_item">
+            <option>English</option>
+            <option>Italiano</option>
+            <option>Français</option>
+          </select>
+        </div>
+      </div>
+    </div>
   </nav>
  
-  <section class="stat_section">
-      <div class="container stat_section_items">
+  <section class="header_section">
+      <div class="container header_section_items">
          <span class="table_title">
             <div>MARKET CAP</div>
             <div class="title_number">$1.58T</div>
@@ -116,5 +158,6 @@
       </footer>
   </section>
   <script type="text/javascript" src="./exchange.js"></script>
+  <script src="./general.js"></script>
 </body>
 </html>
