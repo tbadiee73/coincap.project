@@ -390,7 +390,23 @@ padding: 8px 0;
     width: 320px;
     background: none;
     border: none;
+    font-size: 1.1rem;
 }
+
+ input:focus{
+    outline: none;
+}
+
+.swap_details_row select{
+    color: black;
+    font-weight: bold;
+    font-size: large;
+}
+.swap_details_row select:hover{
+    color: #18c683;
+
+}
+
  /*chart page*/
 
 
