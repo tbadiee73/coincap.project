@@ -9,6 +9,8 @@ body{
     font-size: 14px;
 }
 
+
+
 .container{
     width: 100%;
     max-width: 1127px;
@@ -407,8 +409,29 @@ padding: 8px 0;
 
 }
 
- /*chart page*/
+ /******chart page********/
+ .coin_header_section{
+    padding:21px 42px;
+    background:linear-gradient(to right, rgb(63, 81, 181), rgb(100, 181, 246));
+}
 
+.section_coin_header_items{
+    display: flex;
+    justify-content: space-between;
+    color:rgb(255, 255, 255) ;
+
+}
+
+.coin_header_items_rank{
+    background-color: #18c683;
+    padding: 12px;
+    text-align: center;
+    border-radius:0 0 14px 14px;
+}
+
+.coin_header_items h2,h4{
+    margin: 0 0 24px 0;
+}
 
  .chart_cotainer{
     width: 70%;
@@ -428,3 +451,4 @@ padding: 8px 0;
  
     width: 100%;
 }
+
