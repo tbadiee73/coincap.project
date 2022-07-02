@@ -10,7 +10,7 @@ function coin_item (name){
 
 async function get_coin_item() {
   let items=coin_item(coin_name);
-  let response=await fetch(res);
+  let response=await fetch(items);
   let json=await response.json();
 
   let data=json.data;
@@ -18,16 +18,46 @@ async function get_coin_item() {
     
 }
 
+get_coin_item().then(function (value) {
+  
+  let content= value;
 
+  render_coin_item(content);
 
-let coin_header =document.querySelector(".section_coin_header_items");
+});
+
+//let coin_header =document.querySelector(".section_coin_header_items");
 
 function render_coin_item(items) {
 
+let number=document.querySelector(".coin_header_items_rank h2");
+number.textContent=items.rank;
+
+let coin_name=document.querySelector(".coin_header_items h1");
+coin_name.textContent=items.name + `(`+ items.symbol + `)`;
+
+let coin_price=document.querySelector(".coin_header_items h2");
+coin_price.textContent=numeral(items.priceUsd).format('$0,0.00a');
 
 
+let coin_change=document.querySelector(".coin_header_items span");
+let changes =items.changePercent24Hr
+if (changes <= 0){
+  coin_change.classList.add('text-red');
+}else {
+  coin_change.classList.add('text-green');
+}
+coin_change.textContent=Math.round(items.changePercent24Hr*100)/100 +'%';
+ 
 
+let market_cap=document.querySelector(".market h4");
+market_cap.textContent=numeral(items.marketCapUsd).format('$0,0.00a');
 
+let volum =document.querySelector(".volum h4");
+volum.textContent=numeral(items.volumeUsd24Hr).format('$0,0.00a');
+
+let supply=document.querySelector(".supply h4");
+supply.textContent=numeral(items.supply).format('0,0.00a')+items.symbol;
 
 }
 

@@ -429,7 +429,14 @@ padding: 8px 0;
     border-radius:0 0 14px 14px;
 }
 
-.coin_header_items h2,h4{
+.price{
+    display: flex;
+}
+.price span{
+    margin:5px 0 0 12px;
+}
+
+.coin_header_items h1,h2,h4{
     margin: 0 0 24px 0;
 }
 
